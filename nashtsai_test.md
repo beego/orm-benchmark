@@ -6,7 +6,7 @@ A benchmark to compare the performance of golang orm package.
 
 ### Environment
 
-* MBP Intel Core i5 2.40GHz (2 core)
+* MBP Intel Core i5 2.40GHz (2 cores)
 * 8G RAM
 * Mac OS X 10.9.1
 * go version go1.2 darwin/amd64
