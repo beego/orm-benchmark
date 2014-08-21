@@ -110,5 +110,50 @@ go build
        orm:    17.02s      1701782 ns/op   97191 B/op   3286 allocs/op
        qbs:    19.39s      1938879 ns/op  222771 B/op   5218 allocs/op
       hood:    23.14s      2314262 ns/op  238526 B/op   5550 allocs/op
+```
 
+### Run2
+
+```go
+./orm-benchmark -multi=20 -orm=all
+```
+
+### Reports
+
+#### Sample 1
+```
+ 40000 times - Insert
+       raw:    26.96s       674098 ns/op     329 B/op     10 allocs/op
+      xorm:    28.77s       719131 ns/op    2350 B/op     63 allocs/op
+      hood:    36.93s       923166 ns/op   13476 B/op    193 allocs/op
+       qbs:    38.12s       952943 ns/op    5174 B/op     85 allocs/op
+       orm:    49.44s      1235952 ns/op    1575 B/op     38 allocs/op
+
+ 10000 times - MultiInsert 100 row
+      xorm:    39.27s      3926747 ns/op  116041 B/op   1863 allocs/op
+       raw:    39.80s      3979874 ns/op   50649 B/op    412 allocs/op
+       orm:    46.10s      4609617 ns/op   88066 B/op   1245 allocs/op
+      hood:     Not support multi insert
+       qbs:     Not support multi insert
+
+ 40000 times - Update
+      xorm:    32.31s       807782 ns/op    2754 B/op     83 allocs/op
+       raw:    33.28s       831928 ns/op     343 B/op     10 allocs/op
+       qbs:    33.74s       843511 ns/op    5174 B/op     85 allocs/op
+       orm:    39.70s       992435 ns/op    1505 B/op     37 allocs/op
+      hood:    43.85s      1096128 ns/op   13466 B/op    193 allocs/op
+
+ 80000 times - Read
+       raw:    14.84s       185552 ns/op     921 B/op     23 allocs/op
+       qbs:    17.48s       218485 ns/op    7554 B/op    136 allocs/op
+      xorm:    22.73s       284130 ns/op    7078 B/op    177 allocs/op
+      hood:    29.56s       369516 ns/op    4798 B/op     68 allocs/op
+       orm:    30.70s       383693 ns/op    2766 B/op     75 allocs/op
+
+ 40000 times - MultiRead limit 100
+      xorm:    21.19s       529680 ns/op   35406 B/op    765 allocs/op
+       raw:    25.08s       626952 ns/op   32579 B/op    815 allocs/op
+       orm:    63.42s      1585418 ns/op   96642 B/op   3286 allocs/op
+       qbs:    73.63s      1840659 ns/op  221677 B/op   5215 allocs/op
+      hood:    88.25s      2206154 ns/op  239058 B/op   5552 allocs/op
 ```
