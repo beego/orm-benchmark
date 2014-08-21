@@ -3,7 +3,7 @@ package benchs
 import (
 	"fmt"
 
-	"github.com/lunny/xorm"
+	"github.com/go-xorm/xorm"
 )
 
 var xo *xorm.Session
@@ -21,8 +21,11 @@ func init() {
 
 		engine.SetMaxIdleConns(ORM_MAX_IDLE)
 		engine.SetMaxConns(ORM_MAX_CONN)
+		// cacher := xorm.NewLRUCacher(xorm.NewMemoryStore(), 1000000)
+		// engine.SetDefaultCacher(cacher)
 
 		xo = engine.NewSession()
+		xo.IsAutoClose = false
 	}
 }
 
@@ -32,6 +35,7 @@ func XormInsert(b *B) {
 		initDB()
 		m = NewModel()
 	})
+	defer xo.Close()
 
 	for i := 0; i < b.N; i++ {
 		m.Id = 0
@@ -52,6 +56,7 @@ func XormInsertMulti(b *B) {
 			ms = append(ms, NewModel())
 		}
 	})
+	defer xo.Close()
 
 	for i := 0; i < b.N; i++ {
 		if _, err := xo.InsertMulti(&ms); err != nil {
@@ -68,6 +73,7 @@ func XormUpdate(b *B) {
 		m = NewModel()
 		xo.Insert(m)
 	})
+	defer xo.Close()
 
 	for i := 0; i < b.N; i++ {
 		if _, err := xo.Update(m); err != nil {
@@ -84,6 +90,7 @@ func XormRead(b *B) {
 		m = NewModel()
 		xo.Insert(m)
 	})
+	defer xo.Close()
 
 	for i := 0; i < b.N; i++ {
 		if _, err := xo.Get(m); err != nil {
@@ -107,6 +114,7 @@ func XormReadSlice(b *B) {
 		}
 	})
 
+	defer xo.Close()
 	for i := 0; i < b.N; i++ {
 		var models []*Model
 		if err := xo.Where("id > ?", 0).Limit(100).Find(&models); err != nil {
