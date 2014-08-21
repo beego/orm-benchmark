@@ -2,7 +2,7 @@
 
 A benchmark to compare the performance of golang orm package.
 
-## Results (2014-8-21)
+## Results (2014-8-22)
 
 ### Environment
 
@@ -38,76 +38,77 @@ go build
 
 #### Sample 1
 ```
-   10000 times - Insert
-         qbs:     6.59s       658525 ns/op    5200 B/op     85 allocs/op
-        xorm:     6.85s       685079 ns/op    2356 B/op     63 allocs/op
-         raw:     7.50s       750174 ns/op     330 B/op     10 allocs/op
-         orm:     9.52s       951895 ns/op    1577 B/op     38 allocs/op
-        hood:     9.83s       983200 ns/op   13457 B/op    193 allocs/op
+ 10000 times - Insert
+       raw:     6.20s       619586 ns/op     329 B/op     10 allocs/op
+       qbs:     7.14s       714323 ns/op    5181 B/op     85 allocs/op
+      xorm:     7.78s       778007 ns/op    2356 B/op     63 allocs/op
+       orm:     8.69s       869307 ns/op    1573 B/op     38 allocs/op
+      hood:     9.65s       964711 ns/op   13497 B/op    193 allocs/op
 
-    2500 times - MultiInsert 100 row
-        xorm:    11.31s      4523096 ns/op  116315 B/op   1864 allocs/op
-         raw:    12.10s      4841086 ns/op   50807 B/op    413 allocs/op
-         orm:    12.96s      5184357 ns/op   88203 B/op   1245 allocs/op
-         qbs:     Not support multi insert
-        hood:     Not support multi insert
+  2500 times - MultiInsert 100 row
+       raw:     9.80s      3920504 ns/op   50725 B/op    413 allocs/op
+      xorm:    11.28s      4513046 ns/op  116264 B/op   1864 allocs/op
+       orm:    13.36s      5343020 ns/op   88042 B/op   1245 allocs/op
+      hood:     Not support multi insert
+       qbs:     Not support multi insert
 
-   10000 times - Update
-         raw:     7.07s       707244 ns/op     344 B/op     10 allocs/op
-        xorm:     7.97s       796539 ns/op    2760 B/op     83 allocs/op
-         qbs:     8.60s       859930 ns/op    5195 B/op     85 allocs/op
-         orm:     9.97s       996826 ns/op    1507 B/op     37 allocs/op
-        hood:    10.75s      1075427 ns/op   13454 B/op    193 allocs/op
+ 10000 times - Update
+       qbs:     6.59s       659403 ns/op    5181 B/op     85 allocs/op
+       raw:     7.14s       714484 ns/op     343 B/op     10 allocs/op
+      xorm:     8.29s       829202 ns/op    2759 B/op     83 allocs/op
+      hood:     9.29s       928678 ns/op   13477 B/op    193 allocs/op
+       orm:     9.71s       970709 ns/op    1504 B/op     37 allocs/op
 
-   20000 times - Read
-         raw:     3.81s       190633 ns/op     924 B/op     23 allocs/op
-         qbs:     4.34s       216836 ns/op    7591 B/op    136 allocs/op
-        xorm:     5.89s       294564 ns/op    7214 B/op    177 allocs/op
-        hood:     7.53s       376511 ns/op    4784 B/op     68 allocs/op
-         orm:     7.65s       382452 ns/op    2801 B/op     75 allocs/op
+ 20000 times - Read
+       raw:     3.69s       184264 ns/op     921 B/op     23 allocs/op
+       qbs:     4.35s       217527 ns/op    7568 B/op    136 allocs/op
+      xorm:     5.82s       290913 ns/op    7186 B/op    177 allocs/op
+      hood:     7.31s       365405 ns/op    4831 B/op     68 allocs/op
+       orm:     7.56s       377792 ns/op    2772 B/op     75 allocs/op
 
-   10000 times - MultiRead limit 100
-         raw:     6.29s       629051 ns/op   32696 B/op    815 allocs/op
-         orm:    17.05s      1704526 ns/op   97280 B/op   3286 allocs/op
-         qbs:    19.65s      1965080 ns/op  222824 B/op   5217 allocs/op
-        hood:    22.82s      2281711 ns/op  238446 B/op   5552 allocs/op
-        xorm:    24.57s      2456610 ns/op  195990 B/op   6026 allocs/op
+ 10000 times - MultiRead limit 100
+      xorm:     5.29s       528933 ns/op   35646 B/op    765 allocs/op
+       raw:     6.87s       687438 ns/op   32618 B/op    815 allocs/op
+       orm:    17.07s      1706562 ns/op   96891 B/op   3286 allocs/op
+       qbs:    19.64s      1963853 ns/op  221316 B/op   5216 allocs/op
+      hood:    22.66s      2265802 ns/op  239176 B/op   5552 allocs/op
 ```
 
 #### Sample 2
 ```
-     10000 times - Insert
-          xorm:     6.85s       685162 ns/op    2357 B/op     63 allocs/op
-           qbs:     6.94s       693856 ns/op    5188 B/op     85 allocs/op
-           raw:     7.20s       719666 ns/op     330 B/op     10 allocs/op
-           orm:     8.40s       839692 ns/op    1585 B/op     38 allocs/op
-          hood:     9.22s       921943 ns/op   13438 B/op    193 allocs/op
+ 10000 times - Insert
+       raw:     6.39s       638549 ns/op     330 B/op     10 allocs/op
+      xorm:     6.86s       686125 ns/op    2364 B/op     63 allocs/op
+       qbs:     6.90s       689705 ns/op    5203 B/op     85 allocs/op
+       orm:     8.79s       879231 ns/op    1574 B/op     38 allocs/op
+      hood:     9.31s       930851 ns/op   13426 B/op    193 allocs/op
 
-      2500 times - MultiInsert 100 row
-          xorm:    10.36s      4143998 ns/op  116300 B/op   1864 allocs/op
-           raw:    11.63s      4652087 ns/op   50798 B/op    413 allocs/op
-           orm:    12.78s      5111329 ns/op   88295 B/op   1246 allocs/op
-           qbs:     Not support multi insert
-          hood:     Not support multi insert
+  2500 times - MultiInsert 100 row
+      xorm:     7.50s      2999451 ns/op  116465 B/op   1864 allocs/op
+       raw:     8.59s      3435754 ns/op   50833 B/op    413 allocs/op
+       orm:    10.82s      4326730 ns/op   88097 B/op   1245 allocs/op
+       qbs:     Not support multi insert
+      hood:     Not support multi insert
 
-     10000 times - Update
-           raw:     7.61s       760759 ns/op     344 B/op     10 allocs/op
-           qbs:     8.11s       810840 ns/op    5185 B/op     85 allocs/op
-          hood:     9.32s       932424 ns/op   13440 B/op    193 allocs/op
-          xorm:     9.52s       952424 ns/op    2761 B/op     83 allocs/op
-           orm:    10.28s      1028152 ns/op    1512 B/op     37 allocs/op
+ 10000 times - Update
+       qbs:     6.98s       697781 ns/op    5199 B/op     85 allocs/op
+      xorm:     7.28s       727931 ns/op    2763 B/op     83 allocs/op
+       raw:     8.11s       811301 ns/op     344 B/op     10 allocs/op
+       orm:     9.45s       945375 ns/op    1505 B/op     37 allocs/op
+      hood:     9.81s       981114 ns/op   13425 B/op    193 allocs/op
 
-     20000 times - Read
-           raw:     3.74s       187029 ns/op     925 B/op     23 allocs/op
-           qbs:     4.38s       219125 ns/op    7582 B/op    136 allocs/op
-          xorm:     5.85s       292319 ns/op    7232 B/op    177 allocs/op
-          hood:     7.48s       373878 ns/op    4795 B/op     68 allocs/op
-           orm:     7.63s       381272 ns/op    2819 B/op     75 allocs/op
+ 20000 times - Read
+       raw:     3.65s       182250 ns/op     923 B/op     23 allocs/op
+       qbs:     4.61s       230311 ns/op    7600 B/op    136 allocs/op
+      xorm:     5.61s       280429 ns/op    7262 B/op    177 allocs/op
+      hood:     7.47s       373731 ns/op    4766 B/op     68 allocs/op
+       orm:     8.10s       404900 ns/op    2784 B/op     75 allocs/op
 
-     10000 times - MultiRead limit 100
-           raw:     6.50s       649588 ns/op   32715 B/op    815 allocs/op
-           orm:    17.23s      1722633 ns/op   97728 B/op   3287 allocs/op
-           qbs:    19.55s      1954671 ns/op  222608 B/op   5217 allocs/op
-          hood:    22.76s      2275626 ns/op  239531 B/op   5551 allocs/op
-          xorm:    24.71s      2471025 ns/op  195905 B/op   6026 allocs/op
+ 10000 times - MultiRead limit 100
+      xorm:     5.74s       574265 ns/op   35584 B/op    765 allocs/op
+       raw:     6.77s       677382 ns/op   32672 B/op    815 allocs/op
+       orm:    17.02s      1701782 ns/op   97191 B/op   3286 allocs/op
+       qbs:    19.39s      1938879 ns/op  222771 B/op   5218 allocs/op
+      hood:    23.14s      2314262 ns/op  238526 B/op   5550 allocs/op
+
 ```
