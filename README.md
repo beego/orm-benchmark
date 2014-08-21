@@ -23,7 +23,7 @@ A benchmark to compare the performance of golang orm package.
 All package run in no-cache mode.
 
 * [Beego ORM](http://beego.me/docs/mvc/model/overview.md) latest in branch [develop](https://github.com/astaxie/beego/tree/develop)
-* [xorm](https://github.com/lunny/xorm) latest
+* [xorm](https://github.com/go-xorm/xorm) latest
 * [Hood](https://github.com/eaigner/hood) latest
 * [Qbs](https://github.com/coocood/qbs) latest (Disabled stmt cache / [patch](https://gist.github.com/slene/8297019) / [full](https://gist.github.com/slene/8297565))
 

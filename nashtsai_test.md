@@ -9,7 +9,7 @@ A benchmark to compare the performance of golang orm package.
 * MBP Intel Core i5 2.40GHz (2 cores)
 * 8G RAM
 * Mac OS X 10.9.1
-* go version go1.2 darwin/amd64
+* go version go1.3.1 darwin/amd64
 * [Go-MySQL-Driver Latest](https://github.com/go-sql-driver/mysql)
 
 ### MySQL
@@ -21,7 +21,7 @@ A benchmark to compare the performance of golang orm package.
 All package run in no-cache mode.
 
 * [Beego ORM](http://beego.me/docs/mvc/model/overview.md) latest in branch [develop](https://github.com/astaxie/beego/tree/develop)
-* [xorm](https://github.com/nashtsai/xorm) latest in branch [dev](https://github.com/nashtsai/xorm/tree/dev)
+* [xorm](https://github.com/go-xorm/xorm) latest
 * [Hood](https://github.com/eaigner/hood) latest
 * [Qbs](https://github.com/coocood/qbs) latest (Disabled stmt cache / [patch](https://gist.github.com/slene/8297019) / [full](https://gist.github.com/slene/8297565))
 
